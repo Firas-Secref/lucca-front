@@ -1,0 +1,53 @@
+<div style=" display: flex; justify-content: center; flex-direction: column; width: 80vw; margin-top: 9rem; margin-left: 14rem">
+  <p-button (click)="openNewNoteModal()" label="New Note" icon="pi pi-plus"></p-button>
+
+  <p-table [value]="notes" [tableStyle]="{ 'min-width': '50rem', 'margin-top':'4rem'}">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Period</th>
+        <th>Employee</th>
+        <th>Value</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-note>
+      <tr>
+        <td>{{ note?.period }}</td>
+        <td>{{ note?.user }}</td>
+        <td>{{ note?.note }} / 20</td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+</div>
+
+<p-dialog header="NEW NOTE" [(visible)]="newNoteModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+          [draggable]="false" [resizable]="false">
+  <div><br>
+
+    <form [formGroup]="newNoteForm" >
+      <div style="display: flex; flex-direction: column; color: #065878"><br>
+        <div style="display: flex; flex-direction: column; justify-content: space-between">
+
+          <div style="display: flex; flex-direction: column; justify-content: flex-start">
+            <label><b>Period</b></label><br>
+            <input formControlName="period" type="text" pInputText style="border-radius: 15px">
+          </div>
+          <br>
+          <div style="display: flex; flex-direction: column; justify-content: flex-start">
+            <label><b>Note</b></label><br>
+            <input formControlName="note" type="number" pInputText style="border-radius: 15px">
+          </div>
+          <br>
+
+        </div>
+        <br>
+      </div>
+    </form>
+  </div>
+
+  <ng-template pTemplate="footer">
+    <button (click)="newNoteModal = false" pButton pRipple type="button" icon="pi pi-times" label="Cancel" class="p-button-danger"></button>
+    <p-button icon="pi pi-check" label="Submit" class="p-button-text" (click)="submitNote()"></p-button>
+  </ng-template>
+</p-dialog>
+<p-toast></p-toast>

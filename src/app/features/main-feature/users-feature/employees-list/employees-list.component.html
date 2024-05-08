@@ -1,0 +1,60 @@
+
+<div style=" margin-top: 9rem; margin-left: 14rem; ">
+<p-selectButton  [options]="selectAllOrOnlyMines"  optionLabel="label" optionValue="value"></p-selectButton>
+  <br>
+  <div style="display: flex; justify-content: flex-start; flex-direction: row; gap: 2rem; flex-grow: 1; flex-wrap: wrap">
+    <p-card *ngFor="let user of allUsers$ |async" header="{{user.fullName}}" subheader="{{user.email}}" [style]="{ width: '25rem'}" >
+      <ng-template pTemplate="header">
+<!--        <div style="display: flex; justify-content: center; background: #60889f; height: 3rem">{{user.fullName}}</div>-->
+<!--        <img alt="Card" src="https://png.pngtree.com/png-vector/20220901/ourmid/pngtree-company-employee-avatar-icon-wearing-a-suit-png-image_6133899.png" />-->
+      </ng-template>
+
+        <ng-template pTemplate="footer">
+
+          <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem">
+            <p-button *ngIf="!employeeRole" label="Interviews" routerLink="/annualInterview/list/employee/{{user?.userId}}" severity="secondary" icon="pi pi-file"></p-button>
+            <p-button *ngIf="managerRole" label="Notes" routerLink="/annualInterview/notes/{{user?.userId}}" severity="primary" icon="pi pi-check"></p-button>
+          </div>
+
+          <p-button *ngIf="!employeeRole" label="Details" (click)="openUserDetails(user)" severity="help" icon="pi pi-user" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button>
+        </ng-template>
+    </p-card>
+  </div>
+
+
+</div>
+
+<p-dialog [(visible)]="userDetailsDialog" [modal]="true" [style]="{width: '450px'}" header="Employee Details" styleClass="p-fluid">
+  <ng-template pTemplate="content">
+
+    <div class="field" *ngIf="userDetails">
+      <br>
+      <div style="display: flex; flex-direction: row; gap: 10px">
+        <span><b>First name: </b></span>
+        <p> {{userDetails?.firstname}}</p>
+      </div>
+      <br>
+      <div style="display: flex; flex-direction: row;gap: 2px">
+        <span><b>Last name: </b></span>
+        <p>{{userDetails?.lastname}}</p>
+      </div>
+      <br>
+      <div style="display: flex; flex-direction: row;gap: 2px">
+        <span><b>Role name: </b></span>
+        <p>{{userDetails?.roleName}}</p>
+      </div>
+      <br>
+      <div style="display: flex; flex-direction: row;">
+        <span><b>Email: </b></span>
+        <p>{{userDetails?.email}}</p>
+      </div><br>
+      <div style="display: flex; flex-direction: row;gap: 2px">
+        <span><b>Employee off days available: </b></span>
+        <p>{{userDetails?.holidayCountDays +7}} days</p>
+      </div>
+
+    </div>
+
+  </ng-template>
+
+</p-dialog>

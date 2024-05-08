@@ -1,0 +1,19 @@
+<div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 5rem; margin-left: 17rem; width: 80vw">
+  <h4>Interview for: {{interviewDetails?.userFullName}}</h4>
+  <h4>Period: {{interviewDetails?.period}}</h4>
+  <p>Description: {{interviewDetails?.interviewDescription}}</p>
+</div>
+<hr style="width: 80vw">
+<div  style="display: flex; flex-direction: column; gap: 1rem; margin-left: 17rem; width: 80vw" *ngIf="interviewDetails?.questions">
+  <form action="">
+    <div *ngFor="let question of interviewDetails.questions; let i = index">
+      <label><b>Question {{i}}: </b>{{question?.question}}</label><br>
+      <input value="{{question?.answer}}" (change)="submitNewAnswer($event, question?.questionId)" type="text" pInputText style="border-radius: 15px; width: 80vw">
+    </div>
+    <br>
+    <div style="display: flex; flex-direction: row; justify-content: space-between; margin-bottom: 1.5rem">
+      <p-button severity="help" icon="pi pi-check" label="Finish Interview" (click)="completeInterview(interviewDetails?.interviewId, interviewDetails?.userId)"></p-button>
+    </div>
+  </form>
+</div>
+<p-toast></p-toast>

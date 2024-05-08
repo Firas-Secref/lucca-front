@@ -1,0 +1,56 @@
+
+<form [formGroup]="interviewForm" style="margin-left: 15rem; margin-top: 8rem">
+  <div style="display: flex; flex-direction: column; color: #065878"><br>
+    <div style="display: flex; flex-direction: column; width: 70vw">
+
+      <div style="display: flex; flex-direction: row; justify-content: flex-start; gap:2rem">
+        <div>
+        <label><b>Employee</b></label><br>
+          <p-dropdown formControlName="employee" [style]="{'border-radius': '15px', 'width': '35vw'}" [options]="usersList"  optionLabel="username" [filter]="true" filterBy="fullName" [showClear]="true" placeholder="Select an Employee" >
+            <ng-template pTemplate="selectedItem" let-selectedOption>
+              <div class="flex align-items-center gap-2">
+                <div>{{ selectedOption.fullName }}</div>
+              </div>
+            </ng-template>
+            <ng-template let-user pTemplate="item">
+              <div class="flex align-items-center gap-2">
+                <div>{{ user.fullName }}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+        </div>
+
+        <div style="display: flex; flex-direction: column; justify-content: flex-start; width: 35vw">
+          <label><b>Period </b></label>
+          <input formControlName="period" type="text" pInputText style="border-radius: 15px">
+        </div>
+      </div>
+      <br>
+
+
+      <br>
+
+      <div style="display: flex; flex-direction: column; justify-content: flex-start">
+        <label><b>Interview description</b></label><br>
+        <textarea formControlName="interviewDescription" rows="5" cols="30" style="border-radius: 15px" pInputTextarea></textarea>
+      </div>
+
+      <br>
+      <div formArrayName="questions" *ngFor="let q of allQuestions.controls; let i = index">
+        <div [formGroupName]="i" style="display: flex; flex-direction: column; justify-content: flex-start">
+          <label><b>Question {{i}}</b></label><br>
+          <input formControlName="question" type="text" pInputText style="border-radius: 15px">
+        </div>
+      </div>
+      <br>
+
+    </div>
+    <br>
+  </div>
+  <div style="display: flex; flex-direction: row; justify-content: space-between; margin-bottom: 1.5rem">
+
+    <p-button icon="pi pi-check" label="Save Answers" [disabled]="!interviewForm.valid" (click)="submitInterviewForm()"></p-button>
+    <p-button severity="help" icon="pi pi-check" label="New Question" (click)="addQuestion()"></p-button>
+  </div>
+</form>
+<p-toast></p-toast>

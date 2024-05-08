@@ -1,0 +1,34 @@
+<div class="cards" style="position: fixed; top: 5rem" >
+
+  <div class="buttons">
+
+    <button class="btn" [routerLink]="['/request']" routerLinkActive="active">
+      <img src="assets/sideBar/to_do.png" style="width: 28px; filter: grayscale(100%);" /><span>{{employeeRole ? "My" : ""}} Requests</span>
+    </button>
+
+    <button class="btn" [routerLink]="['/manageUsers/employees']" routerLinkActive="active" >
+      <img src="assets/sideBar/Groupe%2010768.png" style="width: 28px" /><span>{{managerRole ? "My" : ""}} Employees</span>
+    </button>
+
+    <button class="btn" [routerLink]="['/schedule/office']" routerLinkActive="active" >
+      <img src="assets/sideBar/Groupe%2010782.png" style="width: 28px" /><span>Office schedule</span>
+    </button>
+
+    <button class="btn" [routerLink]="['/schedule/holidays']" routerLinkActive="active" >
+      <img src="assets/sideBar/Groupe%2010782.png" style="width: 28px" /><span>Holidays schedule</span>
+    </button>
+
+    <button class="btn" *ngIf="rhRole" [routerLink]="['/manageUsers/all']" routerLinkActive="active">
+      <img src="assets/sideBar/Groupe%2010780.png" style="width: 28px" /><span>Manage Users</span>
+    </button>
+
+    <button class="btn" *ngIf="rhRole" [routerLink]="['/annualInterview/prepare']" >
+      <img src="assets/sideBar/Groupe%2010772.png"  style="width: 28px"><span>Annual Interview</span>
+    </button>
+
+<!--    <button class="btn" [routerLink]="['/manageUsers']" >-->
+<!--      <img src="assets/sideBar/users.png"  style="width: 28px"><span>Manage Users</span>-->
+<!--    </button>-->
+
+  </div>
+</div>
