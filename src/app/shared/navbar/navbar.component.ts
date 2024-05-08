@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit {
 
   stateMenu: boolean = false;
   helper = new JwtHelperService()
-  fullName: string = "Firas Secref";
+  fullName: string = "";
 
   name!: string;
   username!: string;
@@ -49,6 +49,7 @@ export class NavbarComponent implements OnInit {
     const username = decodedJWT.sub;
     this.profileService.getCurrentUser(username).subscribe(user=>{
         this.fullName= `${user.firstname} ${user.lastname}`
+      console.log(this.fullName)
       this.currentUser = user
     })
   }
