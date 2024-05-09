@@ -38,7 +38,7 @@
       <br>
       <div formArrayName="questions" *ngFor="let q of allQuestions.controls; let i = index">
         <div [formGroupName]="i" style="display: flex; flex-direction: column; justify-content: flex-start">
-          <label><b>Question {{i}}</b></label><br>
+          <label><b>Question {{i+1}}</b></label><br>
           <input formControlName="question" type="text" pInputText style="border-radius: 15px">
         </div>
       </div>
@@ -50,7 +50,7 @@
   <div style="display: flex; flex-direction: row; justify-content: space-between; margin-bottom: 1.5rem">
 
     <p-button icon="pi pi-check" label="Save Answers" [disabled]="!interviewForm.valid" (click)="submitInterviewForm()"></p-button>
-    <p-button severity="help" icon="pi pi-check" label="New Question" (click)="addQuestion()"></p-button>
+    <p-button severity="help" icon="pi pi-plus" label="New Question" (click)="addQuestion()"></p-button>
   </div>
 </form>
 <p-toast></p-toast>

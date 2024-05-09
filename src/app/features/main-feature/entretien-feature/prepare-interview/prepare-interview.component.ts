@@ -36,7 +36,7 @@ export class PrepareInterviewComponent implements OnInit{
     this.interviewForm = this.formBuilder.group({
       employee: [null,[Validators.required]],
       interviewDescription: ["", [Validators.required]],
-      period: [this.getCurrentPeriod(), [Validators.required]],
+      period: [{value: this.getCurrentPeriod(), disabled: true}, [Validators.required]],
       questions: this.formBuilder.array([
         this.addQuestionFormGroup()
       ])
@@ -102,6 +102,7 @@ export class PrepareInterviewComponent implements OnInit{
       if (interviewData){
         this.toastService.add({severity:'success', summary: 'Success', detail: "Interview Saved"});
         this.interviewForm.reset();
+
       }
     })
   }

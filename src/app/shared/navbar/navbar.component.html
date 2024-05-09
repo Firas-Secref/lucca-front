@@ -16,7 +16,7 @@
 <mat-menu #menu="matMenu" class="myMenu" xPosition="before">
 
   <mat-list>
-    <mat-list-item>
+    <mat-list-item [routerLink]="['/profile']">
       <div class="circleMenu" matListItemIcon>
         <span class="initialsMenu">{{fullName| twoFirstLetters}}</span>
       </div>
@@ -28,17 +28,14 @@
       <mat-icon matListItemIcon class="textBlack">edit</mat-icon>
       <div matListItemLine class="textBlack">Edit Profile</div>
     </mat-list-item>
-    
+
     <mat-divider></mat-divider>
 
-    <mat-list-item>
+    <mat-list-item [routerLink]="['/manageUsers/all']">
       <mat-icon matListItemIcon class="textBlack">person_add</mat-icon>
       <div matListItemLine class="textBlack">Add User</div>
     </mat-list-item>
-    <mat-list-item>
-      <mat-icon matListItemIcon class="textBlack">people</mat-icon>
-      <div matListItemLine class="textBlack">Edit Users</div>
-    </mat-list-item>
+
     <mat-divider></mat-divider>
 
     <mat-list-item [routerLink]="['/login']">

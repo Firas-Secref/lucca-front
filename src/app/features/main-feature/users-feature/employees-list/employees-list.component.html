@@ -13,7 +13,7 @@
 
           <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem">
             <p-button *ngIf="!employeeRole" label="Interviews" routerLink="/annualInterview/list/employee/{{user?.userId}}" severity="secondary" icon="pi pi-file"></p-button>
-            <p-button *ngIf="managerRole" label="Notes" routerLink="/annualInterview/notes/{{user?.userId}}" severity="primary" icon="pi pi-check"></p-button>
+            <p-button *ngIf="!employeeRole" label="Notes" routerLink="/annualInterview/notes/{{user?.userId}}" severity="primary" icon="pi pi-check"></p-button>
           </div>
 
           <p-button *ngIf="!employeeRole" label="Details" (click)="openUserDetails(user)" severity="help" icon="pi pi-user" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button>
