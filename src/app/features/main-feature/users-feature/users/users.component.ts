@@ -107,6 +107,7 @@ export class UsersComponent implements OnInit{
 
   deleteUser(){
     this.userService.deleteUser(this.userToDelete).subscribe(()=>{
+      this.confirmDeleteUserModal = false
       this.usersList$ = this.userService.getAllUsers(this.username)
     })
   }
