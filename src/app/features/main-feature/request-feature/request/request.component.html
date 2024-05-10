@@ -51,7 +51,7 @@
 </mat-menu>
 
 <p-dialog header="New Request" [(visible)]="displayModal" [modal]="true" [style]="{width: '70vw', height: '80vh'}"
-          [draggable]="false">
+          >
 
   <form [formGroup]="requestForm">
     <div style="display: flex; justify-content: space-around; flex-direction: row; margin-bottom: 2rem">
@@ -67,7 +67,7 @@
         <div style="display: flex; flex-direction: row; flex-grow: 1; justify-content: flex-start">
           <div style="display: flex; flex-direction: column">
             <label class="labelMarge">Holiday period</label>
-            <p-calendar formControlName="holidayPeriod" [iconDisplay]="'input'" selectionMode="range" [showIcon]="true" inputId="templatedisplay"></p-calendar>
+            <p-calendar formControlName="holidayPeriod" [iconDisplay]="'input'" selectionMode="range" [showIcon]="true" ></p-calendar>
           </div>
         </div>
 

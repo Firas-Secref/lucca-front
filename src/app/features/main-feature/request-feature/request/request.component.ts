@@ -80,7 +80,7 @@ export class RequestComponent implements OnInit{
     const startDateArray = new Date(this.requestForm.value.holidayPeriod[0]).toLocaleDateString().split("/")
     const startDate = `${startDateArray[2]}-${startDateArray[0].padStart(2,"0")}-${startDateArray[1].padStart(2,"0")}`
 
-    const endDateArray = new Date(this.requestForm.value.holidayPeriod[0]).toLocaleDateString().split("/")
+    const endDateArray = new Date(this.requestForm.value.holidayPeriod[1]).toLocaleDateString().split("/")
     const endDate = `${endDateArray[2]}-${endDateArray[0].padStart(2,"0")}-${endDateArray[1].padStart(2,"0")}`
 
     const newRequest = new RequestDto(
@@ -93,6 +93,8 @@ export class RequestComponent implements OnInit{
       status.NEW.statusId,
       !this.requestCategory ? 3 :this.requestCategory.categoryId
     )
+
+    console.log(newRequest)
 
     this.requestService.addNewRequest(newRequest).subscribe(req=>{
       console.log(req)

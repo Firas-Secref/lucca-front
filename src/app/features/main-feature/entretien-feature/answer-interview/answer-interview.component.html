@@ -7,7 +7,7 @@
 <div  style="display: flex; flex-direction: column; gap: 1rem; margin-left: 17rem; width: 80vw" *ngIf="interviewDetails?.questions">
   <form action="">
     <div *ngFor="let question of interviewDetails.questions; let i = index">
-      <label><b>Question {{i}}: </b>{{question?.question}}</label><br>
+      <label><b>Question {{i+1}}: </b>{{question?.question}}</label><br>
       <input value="{{question?.answer}}" (change)="submitNewAnswer($event, question?.questionId)" type="text" pInputText style="border-radius: 15px; width: 80vw">
     </div>
     <br>

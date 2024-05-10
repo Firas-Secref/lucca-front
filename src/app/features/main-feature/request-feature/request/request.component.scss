@@ -3,6 +3,12 @@
   background: lightblue;
 }
 
+::ng-deep .p-calendar .p-datepicker{
+  top:-210px !important;
+}
+
+
+
 ::ng-deep .p-selectbutton .p-button.p-highlight{
   background: #4C83A7;
 }
