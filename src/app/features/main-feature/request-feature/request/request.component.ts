@@ -70,8 +70,8 @@ export class RequestComponent implements OnInit{
     this.requestForm = this.fb.group({
       requestTitle: ["", Validators.required],
       requestDescription: ["", Validators.required],
-      holidayPeriod: [[], Validators.required],
-      urgent: [false, Validators.required],
+      holidayPeriod: [[]],
+      urgent: [false],
     })
   }
 

@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   constructor() { }
-
+  managerRole = localStorage.getItem("role") ==="MANAGER";
+  rhRole = localStorage.getItem("role") ==="RH";
+  employeeRole = localStorage.getItem("role") ==="EMPLOYEE";
   ngOnInit(): void {
   }
 

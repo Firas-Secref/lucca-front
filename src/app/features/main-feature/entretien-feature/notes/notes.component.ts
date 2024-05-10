@@ -16,6 +16,10 @@ export class NotesComponent implements OnInit{
   currentUser!: UserResponseDto
   newNoteModal = false;
   newNoteForm!: FormGroup;
+
+  managerRole = localStorage.getItem("role") ==="MANAGER";
+  rhRole = localStorage.getItem("role") ==="RH";
+  employeeRole = localStorage.getItem("role") ==="EMPLOYEE";
   constructor(private route: ActivatedRoute, private userService: UserService, private fb: FormBuilder, private toastService: MessageService) {
   }
   ngOnInit(): void {

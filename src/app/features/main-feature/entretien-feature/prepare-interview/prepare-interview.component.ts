@@ -101,7 +101,10 @@ export class PrepareInterviewComponent implements OnInit{
       console.log(interviewData)
       if (interviewData){
         this.toastService.add({severity:'success', summary: 'Success', detail: "Interview Saved"});
-        this.interviewForm.reset();
+        this.interviewForm.reset()
+        this.interviewForm.patchValue({
+          period: this.getCurrentPeriod(),
+        });
 
       }
     })

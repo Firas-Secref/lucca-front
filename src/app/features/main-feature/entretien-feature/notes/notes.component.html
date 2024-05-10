@@ -1,5 +1,5 @@
 <div style=" display: flex; justify-content: center; flex-direction: column; width: 80vw; margin-top: 9rem; margin-left: 14rem">
-  <p-button (click)="openNewNoteModal()" label="New Note" icon="pi pi-plus"></p-button>
+  <p-button *ngIf="managerRole" (click)="openNewNoteModal()" label="New Note" icon="pi pi-plus"></p-button>
 
   <p-table [value]="notes" [tableStyle]="{ 'min-width': '50rem', 'margin-top':'4rem'}">
     <ng-template pTemplate="header">

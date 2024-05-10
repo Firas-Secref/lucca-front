@@ -15,6 +15,10 @@ export class NavbarComponent implements OnInit {
   helper = new JwtHelperService()
   fullName: string = "";
 
+  managerRole = localStorage.getItem("role") ==="MANAGER";
+  rhRole = localStorage.getItem("role") ==="RH";
+  employeeRole = localStorage.getItem("role") ==="EMPLOYEE";
+
   name!: string;
   username!: string;
 

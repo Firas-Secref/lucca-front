@@ -52,17 +52,22 @@
 
           <div style="display: flex; flex-direction: column; justify-content: flex-start">
             <label><b>Firstname</b></label><br>
-            <input formControlName="firstname" type="text" pInputText style="border-radius: 15px">
+            <input formControlName="firstname" type="text" [ngClass]=" {'ng-invalid ng-dirty': newUserForm.get('firstname')!.hasError('required') && newUserForm.get('firstname')!.touched}" pInputText style="border-radius: 15px">
+            <small style="color: red" *ngIf="newUserForm.get('firstname')!.hasError('required') && newUserForm.get('firstname')!.touched">Field Required</small>
           </div>
           <br>
           <div style="display: flex; flex-direction: column; justify-content: flex-start">
             <label><b>Lastname</b></label><br>
-            <input formControlName="lastname" type="text" pInputText style="border-radius: 15px">
+            <input formControlName="lastname" type="text" pInputText [ngClass]=" {'ng-invalid ng-dirty': newUserForm.get('lastname')!.hasError('required') && newUserForm.get('lastname')!.touched}" style="border-radius: 15px">
+            <small style="color: red" *ngIf="newUserForm.get('lastname')!.hasError('required') && newUserForm.get('lastname')!.touched">Field Required</small>
+
           </div>
           <br>
           <div style="display: flex; flex-direction: column; justify-content: flex-start">
             <label><b>Email</b></label><br>
-            <input formControlName="email" type="text" pInputText style="border-radius: 15px">
+            <input formControlName="email" type="text" pInputText [ngClass]=" {'ng-invalid ng-dirty': newUserForm.get('email')!.hasError('required') && newUserForm.get('email')!.touched}" style="border-radius: 15px">
+            <small style="color: red" *ngIf="newUserForm.get('email')!.hasError('required') && newUserForm.get('email')!.touched">Field Required</small>
+
           </div>
           <br>
 <!--          <div style="display: flex; flex-direction: column; justify-content: flex-start">-->
@@ -72,12 +77,16 @@
           <br>
           <div style="display: flex; flex-direction: column; justify-content: flex-start">
             <label><b>Username</b></label><br>
-            <input formControlName="username" type="text" pInputText style="border-radius: 15px">
+            <input formControlName="username" type="text" pInputText [ngClass]=" {'ng-invalid ng-dirty': newUserForm.get('username')!.hasError('required') && newUserForm.get('username')!.touched}"style="border-radius: 15px">
+            <small style="color: red" *ngIf="newUserForm.get('username')!.hasError('required') && newUserForm.get('username')!.touched">Field Required</small>
+
           </div>
           <br>
           <div style="display: flex; flex-direction: column; justify-content: flex-start">
             <label><b>Password</b></label><br>
-            <input formControlName="password" type="password" pPassword style="border-radius: 15px">
+            <input formControlName="password" type="password" pPassword [ngClass]=" {'ng-invalid ng-dirty': newUserForm.get('password')!.hasError('required') && newUserForm.get('password')!.touched}" style="border-radius: 15px">
+            <small style="color: red" *ngIf="newUserForm.get('password')!.hasError('required') && newUserForm.get('password')!.touched">Field Required</small>
+
           </div>
         </div>
         <br>

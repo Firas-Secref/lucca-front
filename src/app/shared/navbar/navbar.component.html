@@ -32,7 +32,7 @@
 
     <mat-divider></mat-divider>
 
-    <mat-list-item [routerLink]="['/manageUsers/all']">
+    <mat-list-item *ngIf="rhRole" [routerLink]="['/manageUsers/all']">
       <mat-icon matListItemIcon class="textBlack">person_add</mat-icon>
       <div matListItemLine class="textBlack">Add User</div>
     </mat-list-item>
