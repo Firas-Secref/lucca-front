@@ -15,6 +15,9 @@ export class UserService {
   public addNewUser(newUserDto: RegisterUserDto): Observable<any>{
     return this.http.post<any>(endpoints.register, newUserDto)
   }
+  public deleteUser(userId: number){
+    return this.http.delete(`${endpoints.deleteUser}/${userId}`)
+  }
 
   public getAllUsers(username: string):Observable<UserResponseDto[]>{
     return this.http.get<UserResponseDto[]>(`${endpoints.getAllUsers}/${username}`)

@@ -76,12 +76,19 @@ export class RequestComponent implements OnInit{
   }
 
   public submitRequestForm(){
+    let startDate: string
+    let endDate: string
+  if(this.requestForm.value.holidayPeriod.length !==0){
 
     const startDateArray = new Date(this.requestForm.value.holidayPeriod[0]).toLocaleDateString().split("/")
-    const startDate = `${startDateArray[2]}-${startDateArray[0].padStart(2,"0")}-${startDateArray[1].padStart(2,"0")}`
+    startDate = `${startDateArray[2]}-${startDateArray[0].padStart(2,"0")}-${startDateArray[1].padStart(2,"0")}`
 
     const endDateArray = new Date(this.requestForm.value.holidayPeriod[1]).toLocaleDateString().split("/")
-    const endDate = `${endDateArray[2]}-${endDateArray[0].padStart(2,"0")}-${endDateArray[1].padStart(2,"0")}`
+    endDate = `${endDateArray[2]}-${endDateArray[0].padStart(2,"0")}-${endDateArray[1].padStart(2,"0")}`
+  }else {
+    endDate = "";
+    startDate = ""
+  }
 
     const newRequest = new RequestDto(
       this.requestForm.value.requestTitle,
@@ -136,9 +143,9 @@ export class RequestComponent implements OnInit{
 
 
   filterList($event: SelectButtonOptionClickEvent) {
-    console.log($event)
     switch ($event.option.value) {
       case "Home_Office_Requests": this.requests = this.displayedRequest.filter(req=> req.categoryDto.categoryName === "HOME OFFICE"); break;
+      case "Other_Request": this.requests = this.displayedRequest.filter(req=> req.categoryDto.categoryName === "OTHER"); break;
       case "Vacation_Request": this.requests = this.displayedRequest.filter(req=> req.categoryDto.categoryName === "PAID VACATION" || req.categoryDto.categoryName === "MEDICAL LEAVE"); break;
     }
   }

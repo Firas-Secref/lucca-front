@@ -30,7 +30,7 @@
         <p class="marginItemsListe">{{user?.country}}</p>
         <p class="marginItemsListe">{{user?.address}}</p>
         <p class="marginItemsListe">{{ user?.startDate | date}}</p>
-        <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger marginBtn" style="font-size: 12rem"></button>
+        <button (click)="openModalConfirmDelete(user.userId)" pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger marginBtn" style="font-size: 12rem"></button>
 
       </div>
     </div>
@@ -97,5 +97,19 @@
   <ng-template pTemplate="footer">
     <button pButton pRipple type="button" icon="pi pi-times" label="Cancel" class="p-button-danger"></button>
     <p-button icon="pi pi-check" label="Submit" class="p-button-text" (click)="submitForm()"></p-button>
+  </ng-template>
+</p-dialog>
+
+
+
+<p-dialog header="Confirm Delete User" [(visible)]="confirmDeleteUserModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+          [draggable]="false" [resizable]="false">
+  <div style="display: flex; justify-content: center; align-items: center">
+    <h2>Are you certain about deleting this user from the platform ?</h2>
+  </div>
+
+  <ng-template pTemplate="footer">
+    <button (click)="confirmDeleteUserModal = false; userToDelete = 0" pButton pRipple type="button" icon="pi pi-times" label="Cancel" class="p-button-danger"></button>
+    <p-button icon="pi pi-check" label="Submit" class="p-button-text" (click)="deleteUser()"></p-button>
   </ng-template>
 </p-dialog>

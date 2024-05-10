@@ -5,6 +5,10 @@ import {PrepareInterviewComponent} from "./prepare-interview/prepare-interview.c
 import {InterviewsListComponent} from "./interviews-list/interviews-list.component";
 import {AnswerInterviewComponent} from "./answer-interview/answer-interview.component";
 import {NotesComponent} from "./notes/notes.component";
+import {employeeGuard} from "../../../core/guards/employee.guard";
+import {managerGuardGuard} from "../../../core/guards/manager-guard.guard";
+import {rhGuardGuard} from "../../../core/guards/rh-guard.guard";
+import {authGuardGuard} from "../../../core/guards/auth-guard.guard";
 
 const routes: Routes = [
   {
@@ -13,19 +17,26 @@ const routes: Routes = [
   },
   {
     path: 'prepare',
-    component: PrepareInterviewComponent
+    component: PrepareInterviewComponent,
+    canActivateChild: [employeeGuard, rhGuardGuard, authGuardGuard]
+
   },
   {
     path: 'notes/:employeeId',
-    component: NotesComponent
+    component: NotesComponent,
+    canActivateChild: [employeeGuard, authGuardGuard]
   },
   {
     path: 'list/employee/:employeeId',
-    component: InterviewsListComponent
+    component: InterviewsListComponent,
+    canActivateChild: [employeeGuard, authGuardGuard]
+
   },
   {
     path: 'answerInterview/:interviewId',
-    component: AnswerInterviewComponent
+    component: AnswerInterviewComponent,
+    canActivateChild: [employeeGuard, authGuardGuard, managerGuardGuard]
+
   }
 ];
 

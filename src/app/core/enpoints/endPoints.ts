@@ -51,6 +51,7 @@ export const endpoints = {
   "login": `${api_locale}login`,
   "register": `${api_locale}register`,
   "updateUser": `${api_locale}updateUser`,
+  "deleteUser": `${api_locale}deleteUser`,
   "getCurrentUser": `${api_locale}getCurrentUser`,
   "addNewRequest": `${api_locale}addNewRequest`,
   "getMyRequests": `${api_locale}getMyRequests`,

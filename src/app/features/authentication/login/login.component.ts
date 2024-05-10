@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem("role", decodedJWT.roles[0])
         console.log('login OK', decodedJWT)
         console.log('login OK', JWT)
-      this.router.navigate(['/'])
+      this.router.navigate(['/profile'])
     },
       (error: HttpErrorResponse) => {
         this.showConfirm();

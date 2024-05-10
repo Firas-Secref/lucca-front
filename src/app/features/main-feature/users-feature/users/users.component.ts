@@ -16,6 +16,9 @@ export class UsersComponent implements OnInit{
 
   usersList$!: Observable<UserResponseDto[]>
   helper = new JwtHelperService()
+  username!: string
+  confirmDeleteUserModal = false
+  userToDelete!: number;
 
   constructor(private formBuilder: FormBuilder, private userService: UserService) {
 
@@ -26,6 +29,7 @@ export class UsersComponent implements OnInit{
     const decodedJWT = this.helper.decodeToken(jwt);
     console.log(decodedJWT)
     const username = decodedJWT.sub;
+    this.username = username
       this.initForm();
       this.newRole = { label: 'EMPLOYEE', value: roles.EMPLOYEE }
       this.usersList$ = this.userService.getAllUsers(username)
@@ -90,9 +94,20 @@ export class UsersComponent implements OnInit{
 
 
     this.userService.addNewUser(newUser).subscribe(userData=>{
-      console.log("userData", userData)
       this.newUserForm.reset();
       this.newUserModal = false
+    })
+  }
+
+  openModalConfirmDelete(userId: number) {
+    this.confirmDeleteUserModal = true
+    this.userToDelete = userId
+
+  }
+
+  deleteUser(){
+    this.userService.deleteUser(this.userToDelete).subscribe(()=>{
+      this.usersList$ = this.userService.getAllUsers(this.username)
     })
   }
 }
