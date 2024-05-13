@@ -89,7 +89,8 @@ export class ProfileComponent implements OnInit{
     console.log(userDetails)
     this.profileService.updateUserDetails(userDetails, this.currentUsername).subscribe(user=>{
       console.log(user)
-      this.updateFormData(user)
+      this.updateFormData(user);
+      this.getCurrentUser()
     })
   }
 }

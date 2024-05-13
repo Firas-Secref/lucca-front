@@ -1,6 +1,6 @@
 
 <div style=" margin-top: 9rem; margin-left: 14rem; ">
-<p-selectButton *ngIf="!managerRole" [options]="selectAllOrOnlyMines"  optionLabel="label" optionValue="value"></p-selectButton>
+<p-selectButton *ngIf="managerRole" [options]="selectAllOrOnlyMines"  optionLabel="label" optionValue="value"></p-selectButton>
   <br>
   <div style="display: flex; justify-content: flex-start; flex-direction: row; gap: 2rem; flex-grow: 1; flex-wrap: wrap">
     <p-card *ngFor="let user of allUsers$ |async" header="{{user.fullName}}" subheader="{{user.email}}" [style]="{ width: '25rem'}" >

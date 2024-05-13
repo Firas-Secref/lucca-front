@@ -27,6 +27,8 @@
 
           </div>
           <div style="color: #4e5652; width: 20vw; padding-right: 1rem">{{req.requestDescription}}</div>
+          <br>
+          <div *ngIf="req?.categoryDto?.categoryId == 1 || req?.categoryDto?.categoryId == 2" style="color: #4e5652; width: 20vw; padding-right: 1rem"><b>Period: </b>from {{req?.startDate | date}} to {{req?.endDate | date}}</div>
         </div>
       </div>
     </div>
