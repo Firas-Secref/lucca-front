@@ -43,6 +43,7 @@ export class RequestComponent implements OnInit{
   ];
 
   requestOptions = [
+    { label: "Urgent Requests", value: "Urgent_Requests" },
     { label: "Home Office Requests", value: "Home_Office_Requests" },
     { label: 'Vacation Request', value: "Vacation_Request" },
     { label: 'Other Request', value: "Other_Request" },
@@ -144,6 +145,7 @@ export class RequestComponent implements OnInit{
 
   filterList($event: SelectButtonOptionClickEvent) {
     switch ($event.option.value) {
+      case "Urgent_Requests": this.requests = this.displayedRequest.filter(req=> req.urgent == true); break;
       case "Home_Office_Requests": this.requests = this.displayedRequest.filter(req=> req.categoryDto.categoryName === "HOME OFFICE"); break;
       case "Other_Request": this.requests = this.displayedRequest.filter(req=> req.categoryDto.categoryName === "OTHER"); break;
       case "Vacation_Request": this.requests = this.displayedRequest.filter(req=> req.categoryDto.categoryName === "PAID VACATION" || req.categoryDto.categoryName === "MEDICAL LEAVE"); break;
