@@ -95,6 +95,7 @@ export class UsersComponent implements OnInit{
 
     this.userService.addNewUser(newUser).subscribe(userData=>{
       this.newUserForm.reset();
+      this.usersList$ = this.userService.getAllUsers(this.username)
       this.newUserModal = false
     })
   }
@@ -107,6 +108,9 @@ export class UsersComponent implements OnInit{
 
   deleteUser(){
     this.userService.deleteUser(this.userToDelete).subscribe(()=>{
+      this.confirmDeleteUserModal = false
+      this.usersList$ = this.userService.getAllUsers(this.username)
+    }, error => {
       this.confirmDeleteUserModal = false
       this.usersList$ = this.userService.getAllUsers(this.username)
     })

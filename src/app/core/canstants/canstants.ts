@@ -56,11 +56,11 @@ export const postStatusFilterDropDown = [
 
 export const requestStatusFilterDropDown = [
 
-  {
-    statusName: "NEW",
-    statusColor: "#e3ec5b",
-    statusId: 1
-  },
+  // {
+  //   statusName: "NEW",
+  //   statusColor: "#e3ec5b",
+  //   statusId: 1
+  // },
   {
     statusName: "ACCEPTED",
     statusColor: "#1cdc00",

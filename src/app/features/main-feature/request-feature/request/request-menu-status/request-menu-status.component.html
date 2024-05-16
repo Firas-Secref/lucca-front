@@ -1,6 +1,7 @@
-<div class="customShape" [ngStyle]="{'background-color':request?.statusDto?.statusColor}" [matMenuTriggerFor]="menu"><mat-icon style="color: white">keyboard_arrow_down</mat-icon></div>
+<div *ngIf="request.statusDto.statusId ==1" class="customShape" [ngStyle]="{'background-color':request?.statusDto?.statusColor}" [matMenuTriggerFor]="menu"><mat-icon  style="color: white">keyboard_arrow_down</mat-icon></div>
+<div *ngIf="request.statusDto.statusId !==1" class="customShape" [ngStyle]="{'background-color':request?.statusDto?.statusColor}"></div>
 
-<mat-menu #menu="matMenu">
+<mat-menu #menu="matMenu" >
 
   <button mat-menu-item *ngFor="let state of statusOptions">
     <div style="display: flex; flex-direction: row" (click)="selectState(state)">
@@ -9,8 +10,4 @@
     </div>
   </button>
 
-  <button mat-menu-item disabled>
-    <mat-icon>delete_outline</mat-icon>
-    <span>Delete</span>
-  </button>
 </mat-menu>
