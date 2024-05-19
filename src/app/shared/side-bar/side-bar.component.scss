@@ -1,6 +1,6 @@
 .cards {
   width: min-content;
-  background: white;
+  background: #daf0fd;
   height: 80vh;
   overflow: hidden;
   border-radius: 10px;
@@ -32,6 +32,7 @@
 
 .buttons {
   margin-top: 8vh;
+  background: #daf0fd;
 }
 
 .btn {
@@ -44,7 +45,7 @@
   height: 6vh;
   margin: 1vh 0.5vh 1vh 0.5vh;
   color: #b4b4b4;
-  background: white;
+  background: #daf0fd;
   font-size: 2vh;
   padding-left: 1.2rem;
   display: flex;
@@ -117,6 +118,7 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    background: #daf0fd;
   }
   .btn {
     width: 14vh;

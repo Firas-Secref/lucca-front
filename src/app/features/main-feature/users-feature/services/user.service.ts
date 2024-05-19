@@ -37,4 +37,13 @@ export class UserService {
   public addNoteToEmployee(noteObject: any): Observable<any>{
     return this.http.post<any>(`${endpoints.addNoteToEmployee}`, noteObject)
   }
+
+  addFeedBack(feedBack: any):Observable<any>{
+    return this.http.post<any>(`${endpoints.newFeedback}`, feedBack)
+  }
+
+  getEmployeeFeedBacks(employeeeId: number): Observable<any[]>{
+    return this.http.get<any[]>(`${endpoints.employeeFeedBack}/${employeeeId}`)
+  }
+
 }

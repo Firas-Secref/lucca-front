@@ -83,6 +83,10 @@
   top: 1.4rem; /* 25% of parent */
 }
 
+.flexx{
+  display: flex; flex-direction: row; justify-content: flex-start;
+}
+
 .candidateList{
   margin-top: 2rem;
   margin-left: 2.3rem;

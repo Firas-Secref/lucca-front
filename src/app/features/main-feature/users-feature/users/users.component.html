@@ -11,26 +11,27 @@
 
   <div style="display: flex; justify-content: flex-start; flex-direction: column; margin-bottom: 100px">
 
-    <div *ngFor="let user of usersList$|async" class="candidateList">
-      <div style="display: flex; flex-direction: row; justify-content: flex-start; ">
+    <div *ngFor="let user of usersList$|async" class="candidateList" [ngStyle]="{'background': user.disabled ? '#c5c5c5': 'white'}">
+      <div class="flexx" [ngStyle]="{'background': user.disabled ? '#c5c5c5': 'white'}">
         <mat-list style="margin-right: 5rem">
-          <mat-list-item style="width: 15rem; height: 5rem">
-            <div style="display: flex; flex-direction: row; justify-content: space-between">
+          <mat-list-item style="height: 5rem">
+            <div style="display: flex; gap: 1.5rem;">
               <div class="circle">
                 <span class="initials">{{user?.firstname + " " + user?.lastname| twoFirstLetters}}</span>
               </div>
-              <!--            <p-avatar mat-list-icon image="assets/navBar/me.jpg" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>-->
-              <div style="margin-left: 1rem; margin-top: .7rem">
+<!--              todo ken fema mochkla fil l'alignement : badil display inline par width 15rem-->
+              <div style="display: inline;">
                 <div mat-line >{{user?.firstname | titlecase}} {{user?.lastname | titlecase}}</div>
-                <div mat-line style="color: #4e5652">{{user?.email}}</div>
+                <div mat-line style="color: #4e5652; ">{{user?.email}}</div>
               </div>
             </div>
           </mat-list-item>
         </mat-list>
         <p class="marginItemsListe">{{user?.country}}</p>
+        <p class="marginItemsListe">{{user?.city}}</p>
         <p class="marginItemsListe">{{user?.address}}</p>
         <p class="marginItemsListe">{{ user?.startDate | date}}</p>
-        <button (click)="openModalConfirmDelete(user.userId)" pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger marginBtn" style="font-size: 12rem"></button>
+        <button [ngStyle]="{'visibility': user.disabled ? 'hidden': 'visible'}" (click)="openModalConfirmDelete(user.userId)" pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger marginBtn" style="font-size: 12rem; "></button>
 
       </div>
     </div>
@@ -70,6 +71,26 @@
 
           </div>
           <br>
+          <div style="display: flex; flex-direction: column; justify-content: flex-start">
+            <label><b>Address</b></label><br>
+            <input formControlName="address" type="text" pInputText [ngClass]=" {'ng-invalid ng-dirty': newUserForm.get('address')!.hasError('required') && newUserForm.get('address')!.touched}" style="border-radius: 15px">
+            <small style="color: red" *ngIf="newUserForm.get('address')!.hasError('address') && newUserForm.get('address')!.touched">Field Required</small>
+
+          </div>
+          <br>
+          <div style="display: flex; flex-direction: column; justify-content: flex-start">
+            <label><b>City</b></label><br>
+            <input formControlName="city" type="text" pInputText [ngClass]=" {'ng-invalid ng-dirty': newUserForm.get('city')!.hasError('required') && newUserForm.get('city')!.touched}" style="border-radius: 15px">
+            <small style="color: red" *ngIf="newUserForm.get('city')!.hasError('required') && newUserForm.get('city')!.touched">Field Required</small>
+
+          </div>
+          <br>
+          <div style="display: flex; flex-direction: column; justify-content: flex-start">
+            <label><b>country</b></label><br>
+            <input formControlName="country" type="text" pInputText [ngClass]=" {'ng-invalid ng-dirty': newUserForm.get('country')!.hasError('required') && newUserForm.get('country')!.touched}" style="border-radius: 15px">
+            <small style="color: red" *ngIf="newUserForm.get('country')!.hasError('required') && newUserForm.get('country')!.touched">Field Required</small>
+
+          </div>
 <!--          <div style="display: flex; flex-direction: column; justify-content: flex-start">-->
 <!--            <label><b>Department</b></label><br>-->
 <!--            <p-dropdown [options]="departmentOptions" formControlName="department" optionLabel="name"></p-dropdown>-->

@@ -11,4 +11,5 @@ export interface UserResponseDto{
   country: string;
   roleName: string;
   holidayCountDays: number;
+  disabled: boolean;
 }

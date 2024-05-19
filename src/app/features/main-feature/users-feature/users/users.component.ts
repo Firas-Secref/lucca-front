@@ -29,6 +29,7 @@ export class UsersComponent implements OnInit{
     const decodedJWT = this.helper.decodeToken(jwt);
     console.log(decodedJWT)
     const username = decodedJWT.sub;
+    this.userService.getAllUsers(username).subscribe(console.log)
     this.username = username
       this.initForm();
       this.newRole = { label: 'EMPLOYEE', value: roles.EMPLOYEE }
@@ -57,6 +58,9 @@ export class UsersComponent implements OnInit{
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
       email: ['',Validators.required],
+      address: ['',Validators.required],
+      city: ['',Validators.required],
+      country: ['',Validators.required],
       username: ['', Validators.required],
       password: [this.generateRandomPassword(),Validators.required],
       // department: [this.departmentOptions[0].value, Validators.required]
@@ -85,9 +89,9 @@ export class UsersComponent implements OnInit{
       this.newUserForm.value.firstname,
       this.newUserForm.value.lastname,
       this.newUserForm.value.email,
-      "",
-      "",
-      "",
+      this.newUserForm.value.address,
+      this.newUserForm.value.city,
+      this.newUserForm.value.country,
       startDate,
       this.newRole.roleName
     );

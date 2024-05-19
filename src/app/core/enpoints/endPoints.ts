@@ -69,6 +69,8 @@ export const endpoints = {
   "getUserById": `${api_locale}getUserById`,
   "addNoteToEmployee": `${api_locale}addNoteToEmployee`,
   "getAllHomeOfficeRequests": `${api_locale}getAllHomeOfficeRequests`,
+  "newFeedback": `${api_locale}newFeedback`,
+  "employeeFeedBack": `${api_locale}employeeFeedBack`,
   //
   // "analyse": `${api_analyse}analyseCV`,
   //

@@ -40,13 +40,19 @@ export class LoginComponent implements OnInit {
     this.loginService.login(credentials).subscribe(response=>{
       const JWT = response.headers.get("authorization")
       const decodedJWT = this.helper.decodeToken(JWT)
-      localStorage.setItem("token", JWT)
-      localStorage.setItem("role", decodedJWT.roles[0])
+      if (!decodedJWT.disabled){
+        this.showDisabledConfirm();
+      }else{
+        localStorage.setItem("token", JWT)
+        localStorage.setItem("role", decodedJWT.roles[0])
         console.log('login OK', decodedJWT)
         console.log('login OK', JWT)
-      this.router.navigate(['/profile'])
+        this.router.navigate(['/profile'])
+      }
+
     },
       (error: HttpErrorResponse) => {
+        console.log("nooooo", error)
         this.showConfirm();
       })
   }
@@ -55,8 +61,15 @@ export class LoginComponent implements OnInit {
     this.messageService.clear();
     this.messageService.add({key: 'failed', sticky: true, severity:'error', summary:'Are you sure?', detail:'Confirm to proceed'});
   }
+  showDisabledConfirm() {
+    this.messageService.clear();
+    this.messageService.add({key: 'userDisabled', sticky: true, severity:'error', summary:'Are you sure?', detail:'Confirm to proceed'});
+  }
 
   onConfirm() {
     this.messageService.clear('failed');
+  }
+  onDisabledConfirm() {
+    this.messageService.clear('userDisabled');
   }
 }

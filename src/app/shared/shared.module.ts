@@ -48,10 +48,12 @@ import {SideBarComponent} from "./side-bar/side-bar.component";
 import {HeaderComponent} from "./header/header.component";
 import {TwoFirstLettersPipe} from "./pipes/two-first-letters.pipe";
 import {PasswordModule} from "primeng/password";
+import { TooltipModule } from 'primeng/tooltip';
 
 const sharedModules = [
   CommonModule,
   RippleModule,
+  TooltipModule,
   ToastModule,
   HttpClientModule,
   RouterModule,

@@ -1,9 +1,9 @@
 
-<div style=" margin-top: 9rem; margin-left: 14rem; ">
+<div style=" margin-top: 6.5rem; margin-left: 14rem; ">
 <p-selectButton *ngIf="managerRole" [options]="selectAllOrOnlyMines"  optionLabel="label" optionValue="value"></p-selectButton>
   <br>
-  <div style="display: flex; justify-content: flex-start; flex-direction: row; gap: 2rem; flex-grow: 1; flex-wrap: wrap">
-    <p-card *ngFor="let user of allUsers$ |async" header="{{user.fullName}}" subheader="{{user.email}}" [style]="{ width: '25rem'}" >
+  <div style="display: flex; justify-content: flex-start; color: #bdd5e3; flex-direction: row; gap: 2rem; flex-grow: 1; flex-wrap: wrap">
+    <p-card *ngFor="let user of allUsers$ |async" header="{{user.fullName}}" subheader="{{user.email}}" [style]="{ width: '25rem', background:'#daf0fd'}" >
       <ng-template pTemplate="header">
 <!--        <div style="display: flex; justify-content: center; background: #60889f; height: 3rem">{{user.fullName}}</div>-->
 <!--        <img alt="Card" src="https://png.pngtree.com/png-vector/20220901/ourmid/pngtree-company-employee-avatar-icon-wearing-a-suit-png-image_6133899.png" />-->
@@ -12,11 +12,13 @@
         <ng-template pTemplate="footer">
 
           <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem">
-            <p-button *ngIf="!employeeRole" label="Interviews" routerLink="/annualInterview/list/employee/{{user?.userId}}" severity="secondary" icon="pi pi-file"></p-button>
-            <p-button *ngIf="!employeeRole" label="Notes" routerLink="/annualInterview/notes/{{user?.userId}}" severity="primary" icon="pi pi-check"></p-button>
+            <p-button tooltipPosition="top" pTooltip="Interviews" *ngIf="!employeeRole" [rounded]="true"  routerLink="/annualInterview/list/employee/{{user?.userId}}" severity="secondary" icon="pi pi-file-edit"></p-button>
+            <p-button tooltipPosition="top" pTooltip="Notes" *ngIf="!employeeRole" [rounded]="true"   routerLink="/annualInterview/notes/{{user?.userId}}" severity="primary" icon="pi pi-chart-line"></p-button>
+            <p-button tooltipPosition="top" pTooltip="Employee details" *ngIf="!employeeRole" [rounded]="true"   (click)="openUserDetails(user)" severity="help" icon="pi pi-user" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button>
+            <p-button tooltipPosition="top" pTooltip="FeedBacks" [rounded]="true" *ngIf="!employeeRole" (click)="displayFeedBacks(user)" severity="warning" icon="pi pi-comments" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button>
           </div>
 
-          <p-button *ngIf="!employeeRole" label="Details" (click)="openUserDetails(user)" severity="help" icon="pi pi-user" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button>
+
         </ng-template>
     </p-card>
   </div>
@@ -58,3 +60,48 @@
   </ng-template>
 
 </p-dialog>
+
+<p-dialog [modal]="true" header="FeedBacks for {{candidateNameFeedBack}}" [(visible)]="feedBacks" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '50vw'}">
+  <div style="display: flex; justify-content: center; flex-direction: column">
+    <div style="display: flex; justify-content: flex-end; flex-direction: row">
+      <img src="../../../../assets/candidate/feedBack.png" style="width: 4vw; display: flex; justify-content: center">
+    </div>
+  </div>
+  <div>
+    <p-fieldset legend="HR Feedbacks"[toggleable]="true">
+      <form [formGroup]="feedRhBackForm" *ngIf="rhRole">
+        <div style="display: flex; flex-direction: row; width: 100%;">
+          <div style="display: flex; flex-direction: column; width: 70%;">
+            <label htmlFor="feedback">Enter your HR feedback for this employee.</label>
+            <input formControlName="feedBackText" pInputText id="feedback" aria-describedby="feedBack-help" /><br>
+          </div>
+          <div class="buttons" style="width: 30%;">
+            <button  class="butSee" (click)="submitRhFeedBack()">Submit</button>
+          </div>
+        </div>
+
+      </form>
+      <ul>
+        <li *ngFor="let feedback of rhFeedbacksForCandidate">{{feedback.feedBackText}}</li>
+      </ul>
+    </p-fieldset>
+    <br>
+    <p-fieldset legend="Technical Feedbacks"[toggleable]="true" >
+      <form [formGroup]="feedTechBackForm" *ngIf="managerRole">
+        <div style="display: flex; flex-direction: row; width: 100%;">
+          <div style="display: flex; flex-direction: column; width: 70%;">
+            <label htmlFor="feedback">Enter your Technical feedback for this employee.</label>
+            <input formControlName="feedBackText" pInputText id="feedback" aria-describedby="feedBack-help" /><br>
+          </div>
+          <div class="buttons" style="width: 30%;">
+            <button  class="butSee" (click)="submitTechFeedBack()">Submit</button>
+          </div>
+        </div>
+      </form>
+      <ul>
+        <li *ngFor="let feedback of techFeedbacksForCandidate">{{feedback.feedBackText}}</li>
+      </ul>
+    </p-fieldset>
+  </div>
+</p-dialog>
+
