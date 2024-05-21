@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from "../services/user.service";
 import {JwtHelperService} from "@auth0/angular-jwt";
-import {Observable} from "rxjs";
+import {filter, Observable} from "rxjs";
 import {map, tap} from "rxjs/operators";
 import {FormBuilder, UntypedFormGroup} from "@angular/forms";
 
@@ -67,16 +67,27 @@ export class EmployeesListComponent implements OnInit{
     const decodedJWT = this.helper.decodeToken(jwt);
     console.log(decodedJWT)
     const username = decodedJWT.sub;
+
     this.allUsers$ = this.userService.getAllUsers(username).pipe(
-      map(users=>
-        users.map(user=>
-           ({
-            ...user,
-            fullName: `${user.firstname} ${user.lastname}`
-          })
-        )
+      map(users=> {
+        if(this.managerRole){
+          return users.filter(user=>user.roleName === "EMPLOYEE").map(
+            user =>
+              ({
+                ...user,
+                fullName: `${user.firstname} ${user.lastname}`
+              })
+          )
+        }
+          return users.map(user =>
+            ({
+              ...user,
+              fullName: `${user.firstname} ${user.lastname}`
+            })
+          )
+        }
       ),
-      tap(users=>console.log(users))
+      tap(users=>console.log(users)),
     );
   }
 

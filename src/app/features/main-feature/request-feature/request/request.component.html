@@ -1,6 +1,6 @@
 
 <div style="display: flex; flex-direction: row; margin-top: 9rem; margin-left: 14rem; margin-bottom: 3rem">
-  <button mat-raised-button class="addBtnColor" (click)="showModalDialog()">+ New Request</button>
+  <button mat-raised-button class="addBtnColor" (click)="showModalDialog()">+ Nouvelle demande</button>
 </div>
 <div style="margin-top: .4rem; margin-left: 14rem">
 
@@ -53,7 +53,7 @@
   </button>
 </mat-menu>
 
-<p-dialog header="New Request" [(visible)]="displayModal" [modal]="true" [style]="{width: '70vw', height: '80vh'}"
+<p-dialog header="Nouvelle demande" [(visible)]="displayModal" [modal]="true" [style]="{width: '70vw', height: '80vh'}"
           >
 
   <form [formGroup]="requestForm">
@@ -62,18 +62,18 @@
     </div>
     <div style="display: flex; flex-direction: column">
       <div style="display: flex; flex-direction: column; width: 100%">
-        <label class="labelMarge">Request title</label>
+        <label class="labelMarge">Titre de demande</label>
         <input formControlName="requestTitle" type="text" pInputText [ngClass]=" {'ng-invalid ng-dirty': requestForm.get('requestTitle')!.hasError('required') && requestForm.get('requestTitle')!.touched}">
-        <small style="color: red" *ngIf="requestForm.get('requestTitle')!.hasError('required') && requestForm.get('requestTitle')!.touched">Field Required</small>
+        <small style="color: red" *ngIf="requestForm.get('requestTitle')!.hasError('required') && requestForm.get('requestTitle')!.touched">Champ obligatoire</small>
 
       </div>
       <br>
       <div style="display: flex; justify-content: center;" *ngIf="requestCategory!==undefined && requestCategory.categoryName !=='OTHER' ">
         <div style="display: flex; flex-direction: row; flex-grow: 1; justify-content: flex-start">
           <div style="display: flex; flex-direction: column">
-            <label class="labelMarge">Holiday period</label>
+            <label class="labelMarge">Periode de congés </label>
             <p-calendar formControlName="holidayPeriod" [ngClass]=" {'ng-invalid ng-dirty': requestForm.get('holidayPeriod')!.hasError('required') && requestForm.get('holidayPeriod')!.touched}" [iconDisplay]="'input'" selectionMode="range" [showIcon]="true" ></p-calendar>
-            <small style="color: red" *ngIf="requestForm.get('holidayPeriod')!.hasError('required') && requestForm.get('holidayPeriod')!.touched">Field Required</small>
+            <small style="color: red" *ngIf="requestForm.get('holidayPeriod')!.hasError('required') && requestForm.get('holidayPeriod')!.touched">Champ obligatoire</small>
 
           </div>
         </div>
@@ -101,7 +101,7 @@
       <div style="display: flex; flex-direction: column; width: 100%">
         <label class="labelMarge">Description</label>
         <textarea formControlName="requestDescription" [ngClass]=" {'ng-invalid ng-dirty': requestForm.get('requestDescription')!.hasError('required') && requestForm.get('requestDescription')!.touched}"pInputTextarea></textarea>
-        <small style="color: red" *ngIf="requestForm.get('requestDescription')!.hasError('required') && requestForm.get('requestDescription')!.touched">Field Required</small>
+        <small style="color: red" *ngIf="requestForm.get('requestDescription')!.hasError('required') && requestForm.get('requestDescription')!.touched">Champ obligatoire</small>
 
       </div>
 
@@ -121,7 +121,7 @@
   </form>
   <ng-template pTemplate="footer">
     <button pButton icon="pi pi-times" (click)="displayModal=false" class="p-button-danger" label="Cancel"></button>
-    <button pButton icon="pi pi-check" label="Submit" [disabled]="!requestForm.valid" (click)="submitRequestForm()"></button>
+    <button pButton icon="pi pi-check" label="Enregistrer" [disabled]="!requestForm.valid" (click)="submitRequestForm()"></button>
   </ng-template>
 </p-dialog>
 <p-toast></p-toast>
