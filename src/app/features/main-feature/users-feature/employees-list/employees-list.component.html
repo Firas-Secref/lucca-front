@@ -13,9 +13,9 @@
 
           <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem">
             <p-button tooltipPosition="top" pTooltip="Entretiens" *ngIf="!employeeRole" [rounded]="true"  routerLink="/annualInterview/list/employee/{{user?.userId}}" severity="secondary" icon="pi pi-file-edit"></p-button>
-            <p-button tooltipPosition="top" pTooltip="Notes" *ngIf="!employeeRole" [rounded]="true"   routerLink="/annualInterview/notes/{{user?.userId}}" severity="primary" icon="pi pi-chart-line"></p-button>
+            <p-button tooltipPosition="top" pTooltip="Notes" *ngIf="!employeeRole || (username === user.username && employeeRole)" [rounded]="true"   routerLink="/annualInterview/notes/{{user?.userId}}" severity="primary" icon="pi pi-chart-line"></p-button>
             <p-button tooltipPosition="top" pTooltip="Détails de l'employé" *ngIf="!employeeRole" [rounded]="true"   (click)="openUserDetails(user)" severity="help" icon="pi pi-user" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button>
-            <p-button tooltipPosition="top" pTooltip="FeedBacks" [rounded]="true" *ngIf="!employeeRole" (click)="displayFeedBacks(user)" severity="warning" icon="pi pi-comments" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button>
+            <p-button tooltipPosition="top" pTooltip="FeedBacks" [rounded]="true" *ngIf="!employeeRole || (username === user.username && employeeRole)" (click)="displayFeedBacks(user)" severity="warning" icon="pi pi-comments" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button>
           </div>
 
 

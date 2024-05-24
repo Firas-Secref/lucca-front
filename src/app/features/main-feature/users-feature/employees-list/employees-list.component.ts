@@ -36,6 +36,7 @@ export class EmployeesListComponent implements OnInit{
 
   public userDetails: any;
   private employeeIdToDisplayFeedBack!: number;
+  public username!: string;
 
   initRHFeedBackForm(){
     this.feedRhBackForm =this.fb.group({
@@ -67,7 +68,7 @@ export class EmployeesListComponent implements OnInit{
     const decodedJWT = this.helper.decodeToken(jwt);
     console.log(decodedJWT)
     const username = decodedJWT.sub;
-
+    this.username = username;
     this.allUsers$ = this.userService.getAllUsers(username).pipe(
       map(users=> {
         if(this.managerRole){
