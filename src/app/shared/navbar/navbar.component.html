@@ -27,21 +27,21 @@
 
     <mat-list-item [routerLink]="['/profile']">
       <mat-icon matListItemIcon class="textBlack">edit</mat-icon>
-      <div matListItemLine class="textBlack">Edit Profile</div>
+      <div matListItemLine class="textBlack">Modifier profile</div>
     </mat-list-item>
 
     <mat-divider></mat-divider>
 
     <mat-list-item *ngIf="rhRole" [routerLink]="['/manageUsers/all']">
       <mat-icon matListItemIcon class="textBlack">person_add</mat-icon>
-      <div matListItemLine class="textBlack">Add User</div>
+      <div matListItemLine class="textBlack">Ajouter utilisateur</div>
     </mat-list-item>
 
     <mat-divider></mat-divider>
 
     <mat-list-item [routerLink]="['/login']">
       <mat-icon matListItemIcon>exit_to_app</mat-icon>
-      <div matListItemLine class="textBlack">Log Out</div>
+      <div matListItemLine class="textBlack">Déconnecter</div>
     </mat-list-item>
   </mat-list>
 

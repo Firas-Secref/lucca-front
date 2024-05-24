@@ -4,7 +4,7 @@
 <!--    <i class="pi pi-search"></i>-->
 <!--    <input type="text" pInputText placeholder="Search">-->
 <!--  </span>-->
-  <button mat-raised-button class="addBtnColor" (click)="showModalDialog()" >+ Add new employee</button>
+  <button mat-raised-button class="addBtnColor" (click)="showModalDialog()" >+ Ajouter un nouveau employé</button>
 </div>
 
 <cdk-virtual-scroll-viewport style="margin-left: 13rem" appendOnly itemSize="50" class="example-viewport">
@@ -52,43 +52,43 @@
         <div style="display: flex; flex-direction: column; justify-content: space-between">
 
           <div style="display: flex; flex-direction: column; justify-content: flex-start">
-            <label><b>Firstname</b></label><br>
+            <label><b>Nom</b></label><br>
             <input formControlName="firstname" type="text" [ngClass]=" {'ng-invalid ng-dirty': newUserForm.get('firstname')!.hasError('required') && newUserForm.get('firstname')!.touched}" pInputText style="border-radius: 15px">
-            <small style="color: red" *ngIf="newUserForm.get('firstname')!.hasError('required') && newUserForm.get('firstname')!.touched">Field Required</small>
+            <small style="color: red" *ngIf="newUserForm.get('firstname')!.hasError('required') && newUserForm.get('firstname')!.touched">Champs obligatoire</small>
           </div>
           <br>
           <div style="display: flex; flex-direction: column; justify-content: flex-start">
-            <label><b>Lastname</b></label><br>
+            <label><b>Prénom</b></label><br>
             <input formControlName="lastname" type="text" pInputText [ngClass]=" {'ng-invalid ng-dirty': newUserForm.get('lastname')!.hasError('required') && newUserForm.get('lastname')!.touched}" style="border-radius: 15px">
-            <small style="color: red" *ngIf="newUserForm.get('lastname')!.hasError('required') && newUserForm.get('lastname')!.touched">Field Required</small>
+            <small style="color: red" *ngIf="newUserForm.get('lastname')!.hasError('required') && newUserForm.get('lastname')!.touched">Champs obligatoire</small>
 
           </div>
           <br>
           <div style="display: flex; flex-direction: column; justify-content: flex-start">
             <label><b>Email</b></label><br>
             <input formControlName="email" type="text" pInputText [ngClass]=" {'ng-invalid ng-dirty': newUserForm.get('email')!.hasError('required') && newUserForm.get('email')!.touched}" style="border-radius: 15px">
-            <small style="color: red" *ngIf="newUserForm.get('email')!.hasError('required') && newUserForm.get('email')!.touched">Field Required</small>
+            <small style="color: red" *ngIf="newUserForm.get('email')!.hasError('required') && newUserForm.get('email')!.touched">Champs obligatoire</small>
 
           </div>
           <br>
           <div style="display: flex; flex-direction: column; justify-content: flex-start">
             <label><b>Address</b></label><br>
             <input formControlName="address" type="text" pInputText [ngClass]=" {'ng-invalid ng-dirty': newUserForm.get('address')!.hasError('required') && newUserForm.get('address')!.touched}" style="border-radius: 15px">
-            <small style="color: red" *ngIf="newUserForm.get('address')!.hasError('address') && newUserForm.get('address')!.touched">Field Required</small>
+            <small style="color: red" *ngIf="newUserForm.get('address')!.hasError('address') && newUserForm.get('address')!.touched">Champs obligatoire</small>
 
           </div>
           <br>
           <div style="display: flex; flex-direction: column; justify-content: flex-start">
-            <label><b>City</b></label><br>
+            <label><b>Ville</b></label><br>
             <input formControlName="city" type="text" pInputText [ngClass]=" {'ng-invalid ng-dirty': newUserForm.get('city')!.hasError('required') && newUserForm.get('city')!.touched}" style="border-radius: 15px">
-            <small style="color: red" *ngIf="newUserForm.get('city')!.hasError('required') && newUserForm.get('city')!.touched">Field Required</small>
+            <small style="color: red" *ngIf="newUserForm.get('city')!.hasError('required') && newUserForm.get('city')!.touched">Champs obligatoire</small>
 
           </div>
           <br>
           <div style="display: flex; flex-direction: column; justify-content: flex-start">
-            <label><b>country</b></label><br>
+            <label><b>Pays</b></label><br>
             <input formControlName="country" type="text" pInputText [ngClass]=" {'ng-invalid ng-dirty': newUserForm.get('country')!.hasError('required') && newUserForm.get('country')!.touched}" style="border-radius: 15px">
-            <small style="color: red" *ngIf="newUserForm.get('country')!.hasError('required') && newUserForm.get('country')!.touched">Field Required</small>
+            <small style="color: red" *ngIf="newUserForm.get('country')!.hasError('required') && newUserForm.get('country')!.touched">Champs obligatoire</small>
 
           </div>
 <!--          <div style="display: flex; flex-direction: column; justify-content: flex-start">-->
@@ -99,14 +99,14 @@
           <div style="display: flex; flex-direction: column; justify-content: flex-start">
             <label><b>Username</b></label><br>
             <input formControlName="username" type="text" pInputText [ngClass]=" {'ng-invalid ng-dirty': newUserForm.get('username')!.hasError('required') && newUserForm.get('username')!.touched}"style="border-radius: 15px">
-            <small style="color: red" *ngIf="newUserForm.get('username')!.hasError('required') && newUserForm.get('username')!.touched">Field Required</small>
+            <small style="color: red" *ngIf="newUserForm.get('username')!.hasError('required') && newUserForm.get('username')!.touched">Champs obligatoire</small>
 
           </div>
           <br>
           <div style="display: flex; flex-direction: column; justify-content: flex-start">
-            <label><b>Password</b></label><br>
+            <label><b>Mot de passe</b></label><br>
             <input formControlName="password" type="password" pPassword [ngClass]=" {'ng-invalid ng-dirty': newUserForm.get('password')!.hasError('required') && newUserForm.get('password')!.touched}" style="border-radius: 15px">
-            <small style="color: red" *ngIf="newUserForm.get('password')!.hasError('required') && newUserForm.get('password')!.touched">Field Required</small>
+            <small style="color: red" *ngIf="newUserForm.get('password')!.hasError('required') && newUserForm.get('password')!.touched">Champs obligatoire</small>
 
           </div>
         </div>
@@ -116,21 +116,21 @@
   </div>
 
   <ng-template pTemplate="footer">
-    <button pButton pRipple type="button" icon="pi pi-times" label="Cancel" class="p-button-danger"></button>
-    <p-button icon="pi pi-check" label="Submit" class="p-button-text" (click)="submitForm()"></p-button>
+    <button pButton pRipple type="button" icon="pi pi-times" label="Annuler" class="p-button-danger"></button>
+    <p-button icon="pi pi-check" label="Ajouter" class="p-button-text" (click)="submitForm()"></p-button>
   </ng-template>
 </p-dialog>
 
 
 
-<p-dialog header="Confirm Delete User" [(visible)]="confirmDeleteUserModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+<p-dialog header="Confirmer la suppression de l'utilisateur" [(visible)]="confirmDeleteUserModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
           [draggable]="false" [resizable]="false">
   <div style="display: flex; justify-content: center; align-items: center">
-    <h2>Are you certain about deleting this user from the platform ?</h2>
+    <h2>Etes-vous certain de supprimer cet utilisateur de la plateforme ?</h2>
   </div>
 
   <ng-template pTemplate="footer">
-    <button (click)="confirmDeleteUserModal = false; userToDelete = 0" pButton pRipple type="button" icon="pi pi-times" label="Cancel" class="p-button-danger"></button>
-    <p-button icon="pi pi-check" label="Submit" class="p-button-text" (click)="deleteUser()"></p-button>
+    <button (click)="confirmDeleteUserModal = false; userToDelete = 0" pButton pRipple type="button" icon="pi pi-times" label="Annuler" class="p-button-danger"></button>
+    <p-button icon="pi pi-check" label="Confirmer" class="p-button-text" (click)="deleteUser()"></p-button>
   </ng-template>
 </p-dialog>

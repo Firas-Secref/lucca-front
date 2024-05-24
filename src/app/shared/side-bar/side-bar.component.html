@@ -3,27 +3,28 @@
   <div class="buttons">
 
     <button class="btn" [routerLink]="['/request']" routerLinkActive="active">
-      <img src="assets/sideBar/to_do.png" style="width: 28px; filter: grayscale(100%);" /><span>{{employeeRole ? "My" : ""}} Requests</span>
+      <img src="assets/sideBar/to_do.png" style="width: 28px; filter: grayscale(100%);" /><span>{{employeeRole ? "My" : ""}} Deamndes</span>
     </button>
 
     <button class="btn" [routerLink]="['/manageUsers/employees']" routerLinkActive="active" >
-      <img src="assets/sideBar/Groupe%2010768.png" style="width: 28px" /><span>{{managerRole ? "My" : ""}} Employees</span>
+      <img src="assets/sideBar/Groupe%2010768.png" style="width: 28px" /><span>{{managerRole ? "My" : ""}} Employés</span>
     </button>
 
     <button class="btn" [routerLink]="['/schedule/office']" routerLinkActive="active" >
-      <img src="assets/sideBar/Groupe%2010782.png" style="width: 28px" /><span>Office schedule</span>
+      <img src="assets/sideBar/Groupe%2010782.png" style="width: 28px" /><span>Horaire du bureau</span>
     </button>
 
     <button class="btn" [routerLink]="['/schedule/holidays']" routerLinkActive="active" >
-      <img src="assets/sideBar/Groupe%2010782.png" style="width: 28px" /><span>Holidays schedule</span>
+      <img src="assets/sideBar/Groupe%2010782.png" style="width: 28px" /><span>Calendrier des vacances</span>
     </button>
 
     <button class="btn" *ngIf="rhRole" [routerLink]="['/manageUsers/all']" routerLinkActive="active">
-      <img src="assets/sideBar/Groupe%2010780.png" style="width: 28px" /><span>Manage Users</span>
+      <img src="assets/sideBar/Groupe%2010780.png" style="width: 28px" /><span>gérer les utilisateurs
+</span>
     </button>
 
     <button class="btn" *ngIf="rhRole" [routerLink]="['/annualInterview/prepare']" >
-      <img src="assets/sideBar/Groupe%2010772.png"  style="width: 28px"><span>Annual Interview</span>
+      <img src="assets/sideBar/Groupe%2010772.png"  style="width: 28px"><span>Entretiens annuel</span>
     </button>
 
 <!--    <button class="btn" [routerLink]="['/manageUsers']" >-->

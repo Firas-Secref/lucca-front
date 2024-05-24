@@ -27,9 +27,6 @@ export class UserService {
     return this.http.get<UserResponseDto[]>(`${endpoints.getAllUsers}/${username}`)
   }
 
-  public getUserByUsername(username: string):Observable<UserResponseDto>{
-    return this.http.get<UserResponseDto>(`${endpoints.getUserDetails}/${username}`)
-  }
   public getUserById(userId: number):Observable<UserResponseDto>{
     return this.http.get<UserResponseDto>(`${endpoints.getUserById}/${userId}`)
   }

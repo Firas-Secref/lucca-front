@@ -1,6 +1,6 @@
 <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 8rem; margin-left: 17rem; width: 80vw">
-  <h4><b>Interview for: </b>{{interviewDetails?.userFullName}}</h4>
-  <h4><b>Period:</b> {{interviewDetails?.period}}</h4>
+  <h4><b>Entretien Pour: </b>{{interviewDetails?.userFullName}}</h4>
+  <h4><b>Periode:</b> {{interviewDetails?.period}}</h4>
   <h4><b>Description: </b>{{interviewDetails?.interviewDescription}}</h4>
 </div>
 <hr style="width: 80vw; margin-left: 17rem">
@@ -12,7 +12,7 @@
     </div>
     <br>
     <div style="display: flex; flex-direction: row; justify-content: space-between; margin-bottom: 1.5rem">
-      <p-button severity="help" icon="pi pi-check" label="Finish Interview" (click)="completeInterview(interviewDetails?.interviewId, interviewDetails?.userId)"></p-button>
+      <p-button severity="help" icon="pi pi-check" label="Terminer" (click)="completeInterview(interviewDetails?.interviewId, interviewDetails?.userId)"></p-button>
     </div>
   </form>
 </div>

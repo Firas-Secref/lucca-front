@@ -37,16 +37,16 @@ export class RequestComponent implements OnInit{
   requests: any[] = [];
   displayedRequest: any[] = [];
   categoryInfo = [
-    { label: "PAID HOLIDAY", value: categories.PAID_HOLIDAY },
-    { label: 'MEDICAL LEAVE', value: categories.MEDICAL_LEAVE },
-    { label: 'OTHER', value: categories.OTHER },
+    { label: "Congé payé", value: categories.PAID_HOLIDAY },
+    { label: 'Congé maladie', value: categories.MEDICAL_LEAVE },
+    { label: 'AUTRE', value: categories.OTHER },
   ];
 
   requestOptions = [
-    { label: "Urgent Requests", value: "Urgent_Requests" },
-    { label: "Home Office Requests", value: "Home_Office_Requests" },
-    { label: 'Vacation Request', value: "Vacation_Request" },
-    { label: 'Other Request', value: "Other_Request" },
+    { label: "Demandes Urgentes", value: "Urgent_Requests" },
+    { label: "Demandes télétravail", value: "Home_Office_Requests" },
+    { label: 'Demandes de congé', value: "Vacation_Request" },
+    { label: 'Autre demandes', value: "Other_Request" },
   ];
 
   requestCategory: any

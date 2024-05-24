@@ -1,12 +1,12 @@
 <div style=" display: flex; justify-content: center; flex-direction: column; width: 80vw; margin-top: 9rem; margin-left: 14rem">
-  <p-button *ngIf="rhRole" label="Prepare New Interview" routerLink="/annualInterview/prepare/" icon="pi pi-plus"></p-button>
+  <p-button *ngIf="rhRole" label="Preparer un nouveau entretien" routerLink="/annualInterview/prepare/" icon="pi pi-plus"></p-button>
 
     <p-table [value]="interviews" [tableStyle]="{ 'min-width': '50rem', 'margin-top':'4rem'}">
       <ng-template pTemplate="header">
         <tr>
           <th>ID</th>
-          <th>Period</th>
-          <th>Employee</th>
+          <th>Periode</th>
+          <th>Employé</th>
           <th>Actions</th>
         </tr>
       </ng-template>
